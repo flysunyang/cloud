@@ -1,0 +1,22 @@
+server:
+  port: 7001
+
+#eureka相关配置
+eureka:
+  instance:
+    hostname: eureka7001.com
+  client:
+    #是否向Eureka中注册。因为本模块是Eureka Server端，不需要注册自己，默认是true
+    register-with-eureka: false
+    #是否从Eureka检索服务，当前是Server端不需要检索，默认是true
+    fetch-registry: false
+    service-url:
+#      单机版
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
+#      集群版 互相守望
+#      defaultZone: http://eureka7002.com:7002/eureka
+  server:
+#    禁用eureka的自我保护机制
+#    enable-self-preservation: false
+#    服务维持心跳时间，单位ms
+#    expected-client-renewal-interval-seconds: 2000

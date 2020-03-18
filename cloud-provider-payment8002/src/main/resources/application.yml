@@ -1,6 +1,6 @@
 #端口号配置
 server:
-  port: 8001
+  port: 8002
 
 #spring相关配置
 spring:
@@ -24,22 +24,16 @@ mybatis:
 #mybatis日志打印
 logging.level.com.sun.cloud.mapper: debug
 
-#eureka Client相关配置
+#Eureka Client相关配置
 eureka:
   instance:
-#    eureka web端显示主机名称
-    instance-id: payment8001
-#    显示ip地址
+    #eureka web端显示主机名称
+    instance-id: payment8002
+    #显示ip地址
     prefer-ip-address: true
-#    eureka向客户端发送心跳的时间，单位：s（默认是30s）
-#    lease-renewal-interval-in-seconds: 1
-#    eureka服务端在最后一次心跳后的等待时间上限，单位：s（默认是90s），超时将删除服务
-#    lease-expiration-duration-in-seconds: 2
   client:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-#      集群版
-#      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
-#      单机版
-      defaultZone: http://localhost:7001/eureka
+      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
+#      defaultZone: http://localhost:7001/eureka #单机版
